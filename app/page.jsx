@@ -42,38 +42,50 @@ export default function Home() {
 					</div>
 				</section>
 
-				<section className="grid grid-cols-5 border-b-2 text-text-color bg-header-bg border-filters chartHeader">
-					<Link
-						href={`?market_id=${marketId}&list=0`}
-						className={`${list == "0" ? "tableFilters" : "border-filter-def"}`}
-					>
-						Top Volume
-					</Link>
-					<Link
-						href={`?market_id=${marketId}&list=1`}
-						className={`${list == "1" ? "tableFilters" : "border-filter-def"}`}
-					>
-						Top Gainers
-					</Link>
-					<Link
-						href={`?market_id=${marketId}&list=2`}
-						className={`${list == "2" ? "tableFilters" : "border-filter-def"}`}
-					>
-						Top Losers
-					</Link>
-					<Link
-						href={`?market_id=${marketId}&list=3`}
-						className={`${list == "3" ? "tableFilters" : "border-filter-def"}`}
-					>
-						Top % Gainer
-					</Link>
-					<Link
-						href={`?market_id=${marketId}&list=4`}
-						className={`${list == "4" ? "tableFilters" : "border-filter-def"}`}
-					>
-						Top % Losers
-					</Link>
-				</section>
+				<Suspense fallback={<div>Loading...</div>}>
+					<section className="grid grid-cols-5 border-b-2 text-text-color bg-header-bg border-filters chartHeader">
+						<Link
+							href={`?market_id=${marketId}&list=0`}
+							className={`${
+								list == "0" ? "tableFilters" : "border-filter-def"
+							}`}
+						>
+							Top Volume
+						</Link>
+						<Link
+							href={`?market_id=${marketId}&list=1`}
+							className={`${
+								list == "1" ? "tableFilters" : "border-filter-def"
+							}`}
+						>
+							Top Gainers
+						</Link>
+						<Link
+							href={`?market_id=${marketId}&list=2`}
+							className={`${
+								list == "2" ? "tableFilters" : "border-filter-def"
+							}`}
+						>
+							Top Losers
+						</Link>
+						<Link
+							href={`?market_id=${marketId}&list=3`}
+							className={`${
+								list == "3" ? "tableFilters" : "border-filter-def"
+							}`}
+						>
+							Top % Gainer
+						</Link>
+						<Link
+							href={`?market_id=${marketId}&list=4`}
+							className={`${
+								list == "4" ? "tableFilters" : "border-filter-def"
+							}`}
+						>
+							Top % Losers
+						</Link>
+					</section>
+				</Suspense>
 
 				<section className="grid col-span-5 border-[1px] border-table-bg p-3 bg-table-bg overflow-y-scroll max-h-screen">
 					<table className="chartTable">
