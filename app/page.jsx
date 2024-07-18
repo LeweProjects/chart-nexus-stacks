@@ -4,6 +4,7 @@ import ChartComponent from "../components/ChartComponent";
 import useFetchData from "./hooks/useFetchData";
 import DarkModeToggle from "react-dark-mode-toggle";
 import useThemeFunction from "./hooks/useThemeFunction";
+import { Suspense } from "react";
 
 export default function Home() {
 	const { chart, list, marketId, handleChange, exchange } = useFetchData();
@@ -97,9 +98,11 @@ export default function Home() {
 								</th>
 								<th></th>
 							</tr>
-							{chart?.map((res, i) => (
-								<ChartComponent key={i} res={res} />
-							))}
+							<Suspense fallback={<div>Loading...</div>}>
+								{chart?.map((res, i) => (
+									<ChartComponent key={i} res={res} />
+								))}
+							</Suspense>
 						</tbody>
 					</table>
 				</section>
