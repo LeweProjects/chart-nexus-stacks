@@ -42,8 +42,8 @@ export default function Home() {
 					</div>
 				</section>
 
-				<Suspense fallback={<div>Loading...</div>}>
-					<section className="grid grid-cols-5 border-b-2 text-text-color bg-header-bg border-filters chartHeader">
+				<section className="grid grid-cols-5 border-b-2 text-text-color bg-header-bg border-filters chartHeader">
+					<Suspense fallback={<div>Loading...</div>}>
 						<Link
 							href={`?market_id=${marketId}&list=0`}
 							className={`${
@@ -52,6 +52,8 @@ export default function Home() {
 						>
 							Top Volume
 						</Link>
+					</Suspense>
+					<Suspense fallback={<div>Loading...</div>}>
 						<Link
 							href={`?market_id=${marketId}&list=1`}
 							className={`${
@@ -60,6 +62,8 @@ export default function Home() {
 						>
 							Top Gainers
 						</Link>
+					</Suspense>
+					<Suspense fallback={<div>Loading...</div>}>
 						<Link
 							href={`?market_id=${marketId}&list=2`}
 							className={`${
@@ -68,6 +72,8 @@ export default function Home() {
 						>
 							Top Losers
 						</Link>
+					</Suspense>
+					<Suspense fallback={<div>Loading...</div>}>
 						<Link
 							href={`?market_id=${marketId}&list=3`}
 							className={`${
@@ -76,6 +82,8 @@ export default function Home() {
 						>
 							Top % Gainer
 						</Link>
+					</Suspense>
+					<Suspense fallback={<div>Loading...</div>}>
 						<Link
 							href={`?market_id=${marketId}&list=4`}
 							className={`${
@@ -84,8 +92,8 @@ export default function Home() {
 						>
 							Top % Losers
 						</Link>
-					</section>
-				</Suspense>
+					</Suspense>
+				</section>
 
 				<section className="grid col-span-5 border-[1px] border-table-bg p-3 bg-table-bg overflow-y-scroll max-h-screen">
 					<table className="chartTable">
