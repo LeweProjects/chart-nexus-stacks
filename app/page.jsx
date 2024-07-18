@@ -17,7 +17,7 @@ export default function Home() {
 			} duration-150 flex min-h-screen flex-col items-center bg-background justify-between p-24`}
 		>
 			<div className="flex flex-col w-[80%] max-w-[55rem] ">
-				<Suspense>
+				<Suspense fallback={<div>Loading...</div>}>
 					<section className="w-full flex justify-between text-text-color bg-header-bg p-4">
 						<label className="font-semibold flex items-center">
 							DELAYED QUOTES
@@ -42,7 +42,6 @@ export default function Home() {
 							/>
 						</div>
 					</section>
-
 					<section className="grid grid-cols-5 border-b-2 text-text-color bg-header-bg border-filters chartHeader">
 						<Link
 							href={`?market_id=${marketId}&list=0`}
@@ -85,7 +84,6 @@ export default function Home() {
 							Top % Losers
 						</Link>
 					</section>
-
 					<section className="grid col-span-5 border-[1px] border-table-bg p-3 bg-table-bg overflow-y-scroll max-h-screen">
 						<table className="chartTable">
 							<tbody>
