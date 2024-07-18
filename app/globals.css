@@ -2,32 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* :root {
+        --background: 255 255 255;
+        --title-text: 161 161 170;
+        --text-color: 0 0 0;
+        --header-bg: 228 228 231;
+        --blink: 254 240 138;
+} */
+* {
+    scrollbar-color: var(--secondary) var(--primary);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.light {
+        --background: rgb(255 255 255);
+        --title-text: rgb(161 161 170);
+        --text-color: rgba(0 0 0);
+        --header-bg: rgb(228 228 231);
+        --header-bg-hover: rgb(226 232 240);
+        --blink: #fef08a;
+        --filters: rgb(71 85 10)5;
+        --filter-def: rgb(228 228 231);
+        --table-bg: rgb(255 255 255);
+        --data-bg: rgb(240, 240, 240);
+        --primary: white;
+        --secondary: gray
+         /* @apply transition duration-300 */
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.dark {
+        --background: rgb(30,30,30);
+        --title-text: rgb(255 255 255 0.04);
+        --text-color: rgb(255, 255, 255, 0.8);
+        --header-bg: rgb(0, 0, 0, 0.5);
+        --header-bg-hover: rgb(60, 60, 60, 1);
+        --blink: #eedd5c;
+        --filters: rgb(255, 255, 255, 0.75);
+        --filter-def: rgb(0, 0, 0, 0.5);
+        --table-bg:  rgb(66, 66, 66);
+        --data-bg:  rgb(19, 19, 19);
+        --primary: rgb(0, 0, 0, 0.8);
+        --secondary: rgb(100, 100, 100)
+         /* @apply transition duration-300 */
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.tableFilters{
+    @apply border-2 border-filters
+}
+.chartHeader a{
+    @apply p-2 text-right border-[1px] select-none cursor-pointer hover:bg-header-bg-hover transition-colors duration-150
+}
+.chartTable tbody tr th,
+            .tableData{
+    @apply font-normal text-title-text text-right p-1
+}
+.tableData{
+    @apply text-text-color
+}
+.cellDefault{
+    @apply delay-700 bg-data-bg transition-colors duration-300 
+}
+.blink {
+    @apply bg-blink text-black
 }
