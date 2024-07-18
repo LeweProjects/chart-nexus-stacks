@@ -17,7 +17,7 @@ export default function Home() {
 			} duration-150 flex min-h-screen flex-col items-center bg-background justify-between p-24`}
 		>
 			<div className="flex flex-col w-[80%] max-w-[55rem] ">
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense>
 					<section className="w-full flex justify-between text-text-color bg-header-bg p-4">
 						<label className="font-semibold flex items-center">
 							DELAYED QUOTES

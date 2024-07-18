@@ -24,7 +24,6 @@ const useFetchData = () => {
 
 	//fetching Data
 	useEffect(() => {
-
 		async function getData() {
 			await axios
 				.get(
